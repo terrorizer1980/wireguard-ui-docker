@@ -12,7 +12,7 @@ on:
         description: |
           List of apk packages to install prior to image building
         required: true
-        default: 'debug'
+        default: 'npm yarn'
           
 
 env:
