@@ -92,5 +92,5 @@ jobs:
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
         build-args: |
-          BUILD_DEPENDENCIES=${{ github.event.inputs.build_dependencies || "npm yarn" }}
+          BUILD_DEPENDENCIES=${{ github.event.inputs.build_dependencies || 'npm yarn' }}
           
