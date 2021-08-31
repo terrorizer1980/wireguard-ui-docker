@@ -114,7 +114,6 @@ jobs:
           event-type: trigger-ci
           client-payload: >
             {
-            "profile": "release",
             "ref": "${{ steps.upstream.outputs.tag }}",
             "sha": "${{ steps.upstream.outputs.tag_sha }}",
             "branch": "${{ steps.facts.outputs.branch }}"
@@ -128,7 +127,6 @@ jobs:
           event-type: trigger-ci
           client-payload: >
             {
-            "profile": "debug",
             "ref": "${{ steps.facts.outputs.branch }}",
             "sha": "${{ steps.upstream.outputs.sha }}",
             "branch": "${{ steps.facts.outputs.branch }}"
