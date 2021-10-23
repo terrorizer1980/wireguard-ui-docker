@@ -136,7 +136,8 @@ jobs:
             "ref": "${{ steps.upstream.outputs.tag }}",
             "sha": "${{ steps.upstream.outputs.tag_sha }}",
             "branch": "${{ steps.facts.outputs.branch }}",
-            "upstream": "${{ github.server_url }}/${{ env.upstream }}.git"
+            "upstream": "${{ env.upstream }}",
+            "upstream-url": "${{ github.server_url }}/${{ env.upstream }}.git"
             }
 
       - name: Repository Dispatch - Build Branch
@@ -150,5 +151,6 @@ jobs:
             "ref": "${{ steps.facts.outputs.branch }}",
             "sha": "${{ steps.upstream.outputs.sha }}",
             "branch": "${{ steps.facts.outputs.branch }}",
-            "upstream": "${{ github.server_url }}/${{ env.upstream }}.git"
+            "upstream": "${{ env.upstream }}",
+            "upstream-url": "${{ github.server_url }}/${{ env.upstream }}.git"
             }
