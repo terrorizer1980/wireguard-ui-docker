@@ -3,6 +3,11 @@ name: Docker Image CI Manual Job
 on:
   workflow_dispatch:
     inputs:
+      upstream:
+        description: |
+          GitHub upstream repo
+        required: false
+        default: 'ngoduykhanh/wireguard-ui'
       tag:
         description: |
           Upstream git branch or tag
@@ -11,7 +16,7 @@ on:
       build_dependencies:
         description: |
           List of apk packages to install prior to image building
-        required: true
+        required: false
         default: 'npm yarn'
           
 
@@ -34,7 +39,7 @@ jobs:
     - name: Checkout upstream repository
       uses: actions/checkout@v2
       with:
-        repository: ${{ env.UPSTREAM }}
+        repository: ${{ github.event.inputs.upstream }}
         ref: ${{ github.event.inputs.tag }}
       
     - name: Set up Docker Buildx
